@@ -135,31 +135,32 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS movie_cast;
 
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    movie_title TEXT
-    movie_year_released TEXT
-    movie_mpaa_rating TEXT
-    studio_id INTEGER
-    actor_id TEXT
-    actor_name TEXT 
+    title TEXT,
+    year_released TEXT,
+    mpaa_rating TEXT,
+    studio_id INTEGER,
+    actor_id INTEGER
 );
 
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    studio_name TEXT
-    movie_id TEXT
+    studio_name TEXT,
+    movie_id INTEGER
 );
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT
+    movie_id INTEGER
 );
 
-INSERT INTO studios (studio_name) VALUES ('Warner Bros.');
-INSERT INTO movies (movie_title, movie_year_released, movie_mpaa_rating, studio_id)
-VALUES ('Batman Begins', 2005, 'PG-13', 1),
-       ('The Dark Knight', 2008, 'PG-13', 1),
-       ('The Dark Knight Rises', 2012, 'PG-13', 1);
+INSERT INTO studios (id, studio_name) VALUES (1, 'Warner Bros.');
+
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('Batman Begins', 2005, 'PG-13',1);
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight', 2008, 'PG-13',1);
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight Rises', 2012, 'PG-13',1);

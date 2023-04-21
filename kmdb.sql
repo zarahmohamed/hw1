@@ -143,8 +143,19 @@ CREATE TABLE movies (
     movie_year_released TEXT
     movie_mpaa_rating TEXT
     studio_id INTEGER
+    actor_id TEXT
+    actor_name TEXT 
 );
 
+CREATE TABLE studios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    studio_name TEXT
+    movie_id TEXT
+);
 
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT
+);
 
 

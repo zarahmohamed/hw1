@@ -199,9 +199,13 @@ INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Kn
 INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Joseph Gordon-Levitt','John Blake');
 INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Anne Hathaway','Selina Kyle');
 
+.print "Movies"
+.print "======"
+.print ""
+SELECT * FROM movies;
 
-SELECT title, year_released, mpaa_rating, studio_name
-FROM movies
-JOIN studios ON movies.studio_id = studios.id
-ORDER BY year_released
-;
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+SELECT * FROM movie_cast;

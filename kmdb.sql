@@ -160,7 +160,6 @@ CREATE TABLE actors (
 );
 
 CREATE TABLE movie_cast (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_id INTEGER,
     actor_id INTEGER,
     character_name TEXT
@@ -168,9 +167,9 @@ CREATE TABLE movie_cast (
 
 INSERT INTO studios (id, studio_name) VALUES (1, 'Warner Bros.');
 
-INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('Batman Begins', 2005, 'PG-13',1);
-INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight', 2008, 'PG-13',1);
-INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight Rises', 2012, 'PG-13',1);
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('Batman Begins', 2005, 'PG-13','Warner Bros.');
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight', 2008, 'PG-13','Warner Bros.');
+INSERT INTO movies (title, year_released, mpaa_rating, studio_id) VALUES ('The Dark Knight Rises', 2012, 'PG-13','Warner Bros.');
 
 INSERT INTO actors (actor_name) VALUES ('Christian Bale');
 INSERT INTO actors (actor_name) VALUES ('Michael Caine');
@@ -184,5 +183,25 @@ INSERT INTO actors (actor_name) VALUES ('Tom Hardy');
 INSERT INTO actors (actor_name) VALUES ('Joseph Gordon-Levitt');
 INSERT INTO actors (actor_name) VALUES ('Anne Hathaway');
 
-INSERT INTO movie_cast (id, actor_id, character_name) VALUES (1,1,'Bruce Wayne');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('Batman Begins','Christian Bale','Bruce Wayne');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('Batman Begins','Michael Caine','Alfred');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('Batman Begins','Liam Neeson','Ras Al Ghul');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('Batman Begins','Katie Holmes','Rachel Dawes');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('Batman Begins','Gary Oldman','Commissioner Gordon');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight','Christian Bale','Bruce Wayne');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight','Heath Ledger','Joker');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight','Aaron Eckhart','Harvey Dent');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight','Michael Caine','Alfred');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight','Maggie Gyllenhaal','Rachel Dawes');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Christian Bale','Bruce Wayne');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Gary Oldman','Commissioner Gordon');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Tom Hardy','Bane');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Joseph Gordon-Levitt','John Blake');
+INSERT INTO movie_cast (movie_id, actor_id, character_name) VALUES ('The Dark Knight Rises','Anne Hathaway','Selina Kyle');
 
+
+SELECT title, year_released, mpaa_rating, studio_name
+FROM movies
+JOIN studios ON movies.studio_id = studios.id
+ORDER BY year_released
+;
